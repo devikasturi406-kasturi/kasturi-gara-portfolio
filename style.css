@@ -1,0 +1,332 @@
+/* Theme Variables */
+:root[data-theme="dark"] {
+  --bg: #08090a;
+  --surface: #0f1012;
+  --surface-hover: #141619;
+  --border: #1b1d20;
+  --border-bright: #2d3138;
+  --text: #f0f2f5;
+  --text-muted: #7a828e;
+  --accent: #eb5757;
+  --accent-dim: rgba(235, 87, 87, 0.12);
+  --status-live: #27c93f;
+}
+
+:root[data-theme="light"] {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --surface-hover: #f1f3f5;
+  --border: #dee2e6;
+  --border-bright: #ced4da;
+  --text: #212529;
+  --text-muted: #6c757d;
+  --accent: #d93838;
+  --accent-dim: rgba(217, 56, 56, 0.08);
+  --status-live: #198754;
+}
+
+/* Reset & Base Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* Top Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  opacity: 0.95;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+}
+.nav-brand {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.nav-links a:hover {
+  color: var(--text);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.status-badge {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--status-live);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--status-live);
+  display: inline-block;
+}
+
+#theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+#theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+/* Typography & Layout Sections */
+section {
+  padding: 4.5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+.section-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.slash {
+  color: var(--accent);
+  font-weight: 700;
+}
+.sec-num {
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+  font-weight: 700;
+}
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+h1 span.dot {
+  color: var(--accent);
+}
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.hero-lead {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 780px;
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+}
+.hero-lead span.highlight {
+  color: var(--text);
+  font-weight: 600;
+}
+.sub-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+/* Component Cards & Grids */
+.dossier-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+}
+.principle-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+}
+.principle-list li {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--text-muted);
+}
+.principle-list li span.bullet {
+  color: var(--accent);
+  font-weight: 700;
+}
+.principle-list li strong {
+  color: var(--text);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  border-radius: 4px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.card-date {
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}
+.card-sub {
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+.card-list {
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Architecture Node Flow */
+.arch-diagram {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.arch-node {
+  border: 1px dashed var(--border-bright);
+  padding: 0.85rem;
+  text-align: center;
+  color: var(--text);
+  background: var(--bg);
+}
+.arch-arrow {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Telemetry Metrics */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.metrics-card dt {
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+.metrics-card dd {
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 0.35rem;
+}
+.metrics-card dd small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: 0.4rem;
+}
+
+/* Tags & Buttons */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.3rem 0.65rem;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.tag.accent-btn {
+  color: var(--accent);
+  border-color: rgba(235, 87, 87, 0.4);
+  background: var(--accent-dim);
+}
+.tag.accent-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .dossier-grid {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  .nav-links {
+    display: none;
+  }
+}
